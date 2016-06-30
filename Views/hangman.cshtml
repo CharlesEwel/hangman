@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman</title>
+  </head>
+  <body>
+    <h3>Incorrect Guesses</h3>
+    <ul>
+      @foreach(string wrong in Model.GetWrongLetters())
+      {
+        <li>@wrong</li>
+      }
+    </ul>
+    <h3>Your Puzzle</h3>
+    <ul display="inline">
+      @foreach(string correct in Model.GetDisplayedWord())
+      {
+        <li>@correct</li>
+      }
+    </ul>
+    <h1>Enter a letter</h1>
+    <form action="/guess_letter" method="post">
+      <label for "letter-input">Letter</label>
+      <input name="letter-input" type="text">
+      <button type="submit">Guess</button>
+    </form>
+  </body>
+</html>
